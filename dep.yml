@@ -17,16 +17,5 @@ spec:
       containers:
         - name: cont1
           image: prat1402/tour:latest
-          ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: tour
-spec:
-  type: LoadBalancer
-  selector:
-    app: tour
-  ports:
-    - port: 80
-      targetPort: 80
+      
                           
