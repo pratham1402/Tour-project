@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tour
+  labels:
+    app: tour
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tour
+  template:
+    metadata:
+      labels:
+        app: tour
+    spec:
+      containers:
+        - name: cont1
+          image: prat1402/tour:latest
+          ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tour
+spec:
+  type: LoadBalancer
+  selector:
+    app: tour
+  ports:
+    - port: 80
+      targetPort: 80
+                          
